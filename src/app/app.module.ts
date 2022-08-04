@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { NavComponent } from './shared/components/nav/nav.component';
 import { StoreComponent } from './pages/store/store.component';
-import { ShoppingCartComponent } from './pages/shopping-cart/shopping-cart.component';
+import { CartComponent } from './pages/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +14,7 @@ import { ShoppingCartComponent } from './pages/shopping-cart/shopping-cart.compo
     FooterComponent,
     NavComponent,
     StoreComponent,
-    ShoppingCartComponent
+    CartComponent
   ],
   imports: [
     BrowserModule,
