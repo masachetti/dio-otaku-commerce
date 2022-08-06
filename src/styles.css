@@ -1,1 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
+@import url("../node_modules/bootstrap/dist/css/bootstrap.min.css");
+@import url("../node_modules/bootstrap-icons/font/bootstrap-icons.css");
+
+.filter-dropdown .dropdown-btn{
+    /* padding-right: 38px !important; */
+}
+
+npn-slider .slider .bar .filler span{
+    background: #b5ddff !important;
+}
+
+npn-slider .slider .bar .filler{
+    border-color: #57a9f1 !important;
+}
+
+npn-slider .slider .bar>span{
+    border-color: #337ab7 !important;
+    background: #b5ddff !important;
+}
+
+npn-slider .handle-tooltip{
+    display: none !important;
+}
+
+npn-slider .values{
+    display: none !important;
+}
