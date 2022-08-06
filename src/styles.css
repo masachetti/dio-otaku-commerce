@@ -6,6 +6,10 @@
     /* padding-right: 38px !important; */
 }
 
+ng-multiselect-dropdown .selected-item{
+    max-width: none !important;
+}
+
 npn-slider .slider .bar .filler span{
     background: #b5ddff !important;
 }
@@ -26,3 +30,4 @@ npn-slider .handle-tooltip{
 npn-slider .values{
     display: none !important;
 }
+
