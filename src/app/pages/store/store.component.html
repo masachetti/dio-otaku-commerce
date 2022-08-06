@@ -1,1 +1,12 @@
-<p>store works!</p>
+<section class="row">
+    <div class="col-3">
+        <app-filter
+        [animeList]="animeList"
+        [maxprice]="maxPrice"
+        (filterChange)="onFilterChange($event)"
+        ></app-filter>
+    </div>
+    <div class="col">
+        <app-product-gallery [productList]="filteredProductList"></app-product-gallery>
+    </div>
+</section>

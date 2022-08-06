@@ -1,1 +1,38 @@
-<p>filter works!</p>
+<div class="card text-center p-3">
+  <label class="form-label align-self-start mt-1 mb-1" for="customRange1"
+    >Animes:</label
+  >
+  <ng-multiselect-dropdown
+    placeholder="Filter By Anime"
+    [settings]="dropdownSettings"
+    [data]="animeList"
+    [(ngModel)]="selectedItems"
+    class="filter-dropdown"
+    (onSelect)="onSelect($event)"
+    (onDeSelect)="onDeSelect($event)"
+  >
+  </ng-multiselect-dropdown>
+  <label class="form-label align-self-start mt-3 mb-1" for="customRange1"
+    >{{ filterPriceRange[0] | currency }} -
+    {{ filterPriceRange[1] | currency }}</label
+  >
+  <npn-slider
+    [min]="0"
+    [max]="100"
+    (onChange)="onRangeChange($event)"
+    [step]="priceRangeSteps"
+    [hide-tooltip]="true"
+    [hide-values]="true"
+  ></npn-slider>
+  <div class="d-flex align-items-center">
+    <input
+      #checkBoxElement
+      class="form-check-input mt-0 me-2"
+      type="checkbox"
+      value=""
+      (change)="onCheckBoxChange(checkBoxElement)"
+      id="out-of-stock-checkbox"
+    />
+    <label for="out-of-stock-checkbox">Fora de estoque</label>
+  </div>
+</div>
