@@ -16,10 +16,12 @@ export class ProductCardComponent implements OnInit {
     imageURL: ""
   }
   altText = "Product image";
+  _outOfStock = false;
 
   constructor() { }
 
   ngOnInit(): void {
+    this._outOfStock = this.product.quantity === 0;
   }
 
 }
