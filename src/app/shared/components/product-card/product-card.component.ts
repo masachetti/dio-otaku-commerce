@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActionFigureProduct } from 'src/app/models/action-figure';
 
 @Component({
@@ -15,6 +15,8 @@ export class ProductCardComponent implements OnInit {
     quantity: 0,
     imageURL: ""
   }
+  @Output() addToCart = new EventEmitter<ActionFigureProduct>;
+
   altText = "Product image";
   _outOfStock = false;
 

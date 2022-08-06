@@ -33,6 +33,7 @@
       type="button"
       class="w-100 btn btn-lg btn-outline-primary fs-6"
       [class]="_outOfStock ? 'disabled' : ''"
+      (click)="addToCart.emit(product)"
     >
       <i class="bi bi-cart2 me-2"></i>
       Adicionar ao Carrinho

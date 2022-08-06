@@ -7,6 +7,6 @@
         ></app-filter>
     </div>
     <div class="col">
-        <app-product-gallery [productList]="filteredProductList"></app-product-gallery>
+        <app-product-gallery [productList]="filteredProductList" (addToCart)="addToCart($event)"></app-product-gallery>
     </div>
 </section>
