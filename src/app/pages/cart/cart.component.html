@@ -1,1 +1,26 @@
-<p>cart works!</p>
+<section>
+  <div class="col-12 order-md-last">
+    <h4 class="d-flex justify-content-between align-items-center mb-3">
+      <span class="text-primary">Seu carrinho</span>
+      <span class="badge bg-primary rounded-pill">{{ cartProducts.length }}</span>
+    </h4>
+    <ul class="list-group mb-3">
+      <ng-container *ngFor="let product of cartProducts">
+        <app-cart-item
+        [product]="product.product"
+        [quantity]="product.quantity"
+        (increase)="increaseProduct(product.product)"
+        (decrease)="decreaseProduct(product.product)"
+        (remove)="removeProdcut(product.product)"
+        (changeQuantity)="changeQuantity(product.product, $event)"
+        >
+
+        </app-cart-item>
+      </ng-container>
+      
+      <li class="list-group-item d-flex justify-content-end">
+        <strong class="fs-5">Total : {{ totalPrice | currency:"BRL" }}</strong>
+      </li>
+    </ul>
+  </div>
+</section>
