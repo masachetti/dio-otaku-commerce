@@ -10,11 +10,11 @@ import { StoreComponent } from './pages/store/store.component';
 import { CartComponent } from './pages/cart/cart.component';
 import { FilterComponent } from './shared/components/filter/filter.component';
 import { ProductGalleryComponent } from './shared/components/product-gallery/product-gallery.component';
-import { CartProductsListComponent } from './shared/components/cart-products-list/cart-products-list.component';
 import { ProductCardComponent } from './shared/components/product-card/product-card.component';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { FormsModule } from '@angular/forms';
 import { NpnSliderModule } from 'npn-slider';
+import { CartItemComponent } from './shared/components/cart-item/cart-item.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,8 +24,8 @@ import { NpnSliderModule } from 'npn-slider';
     CartComponent,
     FilterComponent,
     ProductGalleryComponent,
-    CartProductsListComponent,
     ProductCardComponent,
+    CartItemComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,9 +33,9 @@ import { NpnSliderModule } from 'npn-slider';
     HttpClientModule,
     NgMultiSelectDropDownModule,
     FormsModule,
-    NpnSliderModule
+    NpnSliderModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
