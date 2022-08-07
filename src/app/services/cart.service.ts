@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Subject, Subscription } from 'rxjs';
 import { ActionFigureProduct } from '../models/action-figure';
+import { CartItem } from '../models/cart-item';
 
 const LOCAL_STORAGE_KEY = 'cartProducts';
 
@@ -51,33 +52,33 @@ export class CartService {
     let item = this.getItem(product);
     if (item === undefined) return;
     this.cartProducts.splice(this.cartProducts.indexOf(item), 1);
+    this.propagateChanges();
   }
 
   decreaseProductQuantity(product: ActionFigureProduct) {
     let item = this.getItem(product);
     if (item === undefined) return;
+    if (item.quantity <= 1) return;
     item.quantity -= 1;
+    this.propagateChanges();
   }
 
   increaseProductQuantity(product: ActionFigureProduct) {
     let item = this.getItem(product);
     if (item === undefined) return;
     item.quantity += 1;
+    this.propagateChanges();
   }
 
   setProductQuantity(product: ActionFigureProduct, quantity: number) {
-    if (quantity<=0) return;
+    if (quantity <= 0) return;
     let item = this.getItem(product);
     if (item === undefined) return;
     item.quantity = quantity;
+    this.propagateChanges();
   }
 
-  getItems(){
+  getItems() {
     return this.cartProducts;
   }
-}
-
-interface CartItem {
-  productId: number;
-  quantity: number;
 }
