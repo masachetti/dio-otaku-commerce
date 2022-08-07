@@ -1,5 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
 import { ActionFigureProduct } from 'src/app/models/action-figure';
 import { Filter } from 'src/app/models/filter';
 import { CartService } from 'src/app/services/cart.service';
@@ -10,13 +9,11 @@ import { StockApiService } from 'src/app/services/stock-api.service';
   templateUrl: './store.component.html',
   styleUrls: ['./store.component.css'],
 })
-export class StoreComponent implements OnInit, OnDestroy {
+export class StoreComponent implements OnInit {
   productList: Array<ActionFigureProduct> = [];
   filteredProductList: Array<ActionFigureProduct> = [];
   animeList: string[] = [];
   maxPrice: number = 1000;
-
-  _cartServiceSubscription?: Subscription
 
   constructor(
     private stockApiService: StockApiService,
@@ -27,11 +24,6 @@ export class StoreComponent implements OnInit, OnDestroy {
     this.stockApiService
       .retrieveAll()
       .subscribe((productList) => this.updateProductList(productList));
-
-    this._cartServiceSubscription = this.cartService.observableCartProducts.subscribe((products) => {
-      console.log("Produtos no carrinho vindo do observable: ", products);
-    });
-
   }
 
   updateProductList(productList: Array<ActionFigureProduct>) {
@@ -64,11 +56,7 @@ export class StoreComponent implements OnInit, OnDestroy {
     this.filteredProductList = tempProductList;
   }
 
-  ngOnDestroy(): void {
-    this._cartServiceSubscription?.unsubscribe()  
-  }
-
-  addToCart(product: ActionFigureProduct){
+  addToCart(product: ActionFigureProduct) {
     this.cartService.addProduct(product);
   }
 }
